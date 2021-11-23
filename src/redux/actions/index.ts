@@ -18,3 +18,11 @@ export const getHomeworksByStudent = (studentId: string | undefined) => ({
   type: "GET_HOMEWORKS_REQUESTED",
   studentId,
 });
+export const getStudentByUserId = (userId: string | undefined) => ({
+  type: "GET_STUDENT_BY_USERID_REQUESTED",
+  userId,
+});
+export const getTeacherByUserId = (userId: string | undefined) => ({
+  type: "GET_TEACHER_BY_USERID_REQUESTED",
+  userId,
+});

@@ -4,6 +4,8 @@ import watcherGetTeachers from "./getTeachers";
 import watcherGetStudents from "./getStudents";
 import watcherGetTeacherById from "./getTeacherById";
 import watcherGetHomeworksByStudent from "./getHomeworksByStudent";
+import watcherGetTeacherByUserId from "./getTeacherByUserId";
+import watcherGetStudentByUserId from "./getStudentByUserId";
 
 export default function* rootSaga() {
   yield all([
@@ -11,6 +13,8 @@ export default function* rootSaga() {
     watcherGetTeachers(),
     watcherGetStudents(),
     watcherGetTeacherById(),
-    watcherGetHomeworksByStudent()
+    watcherGetHomeworksByStudent(),
+    watcherGetTeacherByUserId(),
+    watcherGetStudentByUserId(),
   ]);
 }

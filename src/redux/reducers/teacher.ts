@@ -14,6 +14,10 @@ const teacher = (state = initialState, action: any) => {
       return { ...state, teachers: action.teachers[0] };
     case "GET_TEACHER_BY_ID_FAILED":
       return { ...state, error: action.message };
+    case "GET_TEACHER_BY_USERID_SUCCESS":
+      return { ...state, teachers: action.teachers[0] };
+    case "GET_TEACHER_BY_USERID_FAILED":
+      return { ...state, error: action.message };
     default:
       return state;
   }

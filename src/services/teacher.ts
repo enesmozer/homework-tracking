@@ -7,8 +7,12 @@ class TeacherService {
   }
   async getTeacherById(teacherId: string) {
     const { data } = await http.get(
-      `https://homework-tracking-db.herokuapp.com/teachers?id=${teacherId}`
+      `teachers?id=${teacherId}`
     );
+    return data;
+  }
+  async getTeacherByUserId(userId: string) {
+    const { data } = await http.get(`teachers?userId=${userId}`);
     return data;
   }
 }
