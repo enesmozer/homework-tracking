@@ -11,7 +11,7 @@ function App() {
     if (!Object.keys(loginUser).length) {
       navigate("/login");
     }
-  }, [navigate, loginUser]);
+  }, [navigate]);
 
   return (
     <Header />
