@@ -5,13 +5,13 @@ import "./App.css";
 
 function App() {
   const navigate = useNavigate();
-  const loginUser = JSON.parse(localStorage.getItem("loginUser") || "{}");
+  const loginUser : string  = localStorage.getItem("loginUser") || "";
 
   useEffect(() => {
-    if (!Object.keys(loginUser).length) {
+    if (!loginUser.length) {
       navigate("/login");
     }
-  }, [navigate]);
+  }, [navigate, loginUser]);
 
   return (
     <Header />
