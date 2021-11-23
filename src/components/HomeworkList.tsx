@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useMemo } from "react";
 import { RootStateOrAny, useDispatch, useSelector } from "react-redux";
 import { useNavigate, useParams } from "react-router-dom";
 import { getHomeworksByStudent } from "../redux/actions";
@@ -64,12 +64,13 @@ function HomeworkList() {
   useEffect(() => {
     if (
       loginUser.role !== "principle" &&
+      loginUser.role === "student" &&
       loginUser.studentId !== params.studentId
     ) {
       localStorage.removeItem("loginUser");
       navigate("/login");
     }
-  }, [navigate, loginUser, params.studentId]);
+  }, [navigate, loginUser, params.studentId, homeworks]);
 
   const props = {
     name: "file",
@@ -78,6 +79,16 @@ function HomeworkList() {
       authorization: "authorization-text",
     },
   };
+  useEffect(() => {
+    if (
+      loginUser.role !== "principle" &&
+      homeworks.length > 0 &&
+      loginUser.teacherId !== homeworks[0].teacherId
+    ) {
+      localStorage.removeItem("loginUser");
+      navigate("/login");
+    }
+  }, [homeworks, loginUser, navigate]);
   return (
     <div className="homework">
       {homeworks.length > 0 ? (
