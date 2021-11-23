@@ -1,9 +1,9 @@
 import http from "../utils/http";
 
-class StudentService {
+class HomeworkService {
   async getHomeworkByStudent(student: string) {
-    const { data } = await http.get(`/homework?studentId=${student}`);
+    const { data } = await http.get(`/homeworks?studentId=${student}`);
     return data;
   }
 }
-export default new StudentService();
+export default new HomeworkService();
