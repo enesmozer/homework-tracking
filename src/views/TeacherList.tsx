@@ -21,7 +21,7 @@ function TeacherList() {
       localStorage.removeItem("loginUser");
       navigate("/login");
     }
-  }, [navigate]);
+  }, [navigate, loginUser]);
 
   return (
     <div className="teacher-list">

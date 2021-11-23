@@ -31,7 +31,7 @@ function StudentsList() {
       localStorage.removeItem("loginUser");
       navigate("/login");
     }
-  }, [navigate]);
+  }, [navigate, loginUser, params.teacherId]);
   return (
     <div className="student-wrapper">
       {students.length > 0 ? (
