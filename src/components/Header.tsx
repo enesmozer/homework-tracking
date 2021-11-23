@@ -7,7 +7,9 @@ function Header() {
   const loginUser = JSON.parse(localStorage.getItem("loginUser") || "{}");
   return (
     <header className="header">
-      <Title className="header-right">Home Tracking System</Title>
+      <Title level={2} className="header-right">
+        Home Tracking System
+      </Title>
       {Object.keys(loginUser).length > 0 ? (
         <Button
           className="header-left"
