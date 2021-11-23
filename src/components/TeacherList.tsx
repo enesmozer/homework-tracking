@@ -1,7 +1,8 @@
 import { Card, Spin } from "antd";
 import Meta from "antd/lib/card/Meta";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { RootStateOrAny, useDispatch, useSelector } from "react-redux";
+import { Link, useNavigate } from "react-router-dom";
 import { getTeachers } from "../redux/actions/index";
 
 function TeacherList() {
@@ -12,24 +13,31 @@ function TeacherList() {
   useEffect(() => {
     dispatch(getTeachers());
   }, [dispatch]);
+  const navigate = useNavigate();
 
   return (
     <div className="teacher-list">
       {teachers.length > 0 ? (
-        teachers.map((teacher: any) => {
+        teachers.map((teacher: any, index: number) => {
           return (
-            <Card
-              id={teacher.id}
-              className="teacher-card"
-              cover={
-                <img
-                  alt="example"
-                  src="https://picsum.photos/seed/picsum/200/300"
-                />
-              }
+            <Link
+              style={{ display: "block", margin: "1rem 0" }}
+              to={`/students/${teacher.id}`}
+              key={teacher.id}
             >
-              <Meta title={`${teacher.name} ${teacher.surname}`} />
-            </Card>
+              <Card
+                key={teacher.id}
+                className="teacher-card"
+                cover={
+                  <img
+                    alt="example"
+                    src={`https://i.pravatar.cc/300?img=${index + 25}`}
+                  />
+                }
+              >
+                <Meta title={`${teacher.name} ${teacher.surname}`} />
+              </Card>
+            </Link>
           );
         })
       ) : (
