@@ -5,6 +5,8 @@ import App from "./App";
 import store from "./redux/configureStore";
 import { Provider } from "react-redux";
 import TeacherList from "./components/TeacherList";
+import StudentsList from "./components/StudentsList";
+import HomeworkList from "./components/HomeworkList";
 import LoginForm from "./components/LoginForm";
 import "./index.css";
 
@@ -15,6 +17,12 @@ ReactDOM.render(
         <Route path="/" element={<App />} />
         <Route path="teachers" element={<TeacherList />} />
         <Route path="login" element={<LoginForm />} />
+        <Route path="students/" element={<StudentsList />}>
+          <Route path=":teacherId" element={<StudentsList />} />
+        </Route>
+        <Route path="homeworks/" element={<HomeworkList />}>
+          <Route path=":studentId" element={<HomeworkList />} />
+        </Route>
       </Routes>
       <App />
     </BrowserRouter>
