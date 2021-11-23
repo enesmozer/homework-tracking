@@ -4,10 +4,10 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import App from "./App";
 import store from "./redux/configureStore";
 import { Provider } from "react-redux";
-import TeacherList from "./components/TeacherList";
-import StudentsList from "./components/StudentsList";
+import TeacherList from "./views/TeacherList";
+import StudentsList from "./views/StudentsList";
 import HomeworkList from "./views/HomeworkList";
-import LoginForm from "./components/LoginForm";
+import LoginForm from "./views/LoginForm";
 import "./index.css";
 
 ReactDOM.render(
