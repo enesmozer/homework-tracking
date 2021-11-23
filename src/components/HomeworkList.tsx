@@ -1,7 +1,6 @@
-import { render } from "@testing-library/react";
 import { useEffect } from "react";
 import { RootStateOrAny, useDispatch, useSelector } from "react-redux";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { getHomeworksByStudent } from "../redux/actions";
 import { Spin, Switch, Table } from "antd";
 
@@ -36,6 +35,14 @@ function HomeworkList() {
       ),
     },
   ];
+  const navigate = useNavigate();
+  const loginUser = JSON.parse(localStorage.getItem("loginUser") || "{}");
+  useEffect(() => {
+    if (loginUser.role !== "principle" && loginUser.studentId !== params.studentId) {
+      localStorage.removeItem("loginUser");
+      navigate("/login");
+    }
+  }, [navigate]);
 
   return (
     <div className="homework">
@@ -44,7 +51,12 @@ function HomeworkList() {
           {homeworks.map((homework: any) => {
             return (
               <div className="homework-item" key={homework.id}>
-                <Table columns={columns} dataSource={homeworks} />,
+                <Table
+                  columns={columns}
+                  dataSource={homeworks}
+                  key={homework.id}
+                />
+                ,
               </div>
             );
           })}

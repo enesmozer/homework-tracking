@@ -3,7 +3,7 @@ import Meta from "antd/lib/card/Meta";
 import { useEffect } from "react";
 import { RootStateOrAny, useDispatch, useSelector } from "react-redux";
 import { getStudents, getTeacherById } from "../redux/actions/index";
-import { Link, useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import student from "../services/student";
 
 const { Title } = Typography;
@@ -21,6 +21,18 @@ function StudentsList() {
     dispatch(getStudents(params.teacherId));
     dispatch(getTeacherById(params.teacherId));
   }, [dispatch, params.teacherId]);
+  const navigate = useNavigate();
+  const loginUser = JSON.parse(localStorage.getItem("loginUser") || "{}");
+
+  useEffect(() => {
+    if (
+      loginUser.role !== "principle" &&
+      loginUser.teacherId !== params.teacherId
+    ) {
+      localStorage.removeItem("loginUser");
+      navigate("/login");
+    }
+  }, [navigate]);
   return (
     <div className="student-wrapper">
       {students.length > 0 ? (
@@ -34,7 +46,7 @@ function StudentsList() {
                 <Link
                   style={{ display: "block", margin: "1rem 0" }}
                   to={`/homeworks/${student.id}`}
-                  key={teacher.id}
+                  key={student.id}
                 >
                   <Card
                     key={student.id}

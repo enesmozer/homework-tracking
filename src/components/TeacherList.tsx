@@ -14,6 +14,14 @@ function TeacherList() {
     dispatch(getTeachers());
   }, [dispatch]);
   const navigate = useNavigate();
+  const loginUser = JSON.parse(localStorage.getItem("loginUser") || "{}");
+
+  useEffect(() => {
+    if (loginUser.role !== "principle") {
+      localStorage.removeItem("loginUser");
+      navigate("/login");
+    }
+  }, [navigate]);
 
   return (
     <div className="teacher-list">
