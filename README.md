@@ -26,7 +26,7 @@ or you can check the our test database [test database](https://homework-tracking
 
 ## Live Demo
 
-You can see the live demo of [Homework Tracking Platform](https://homework-tracking.herokuapp.com/).
+You can see the live demo of [Homework Tracking Platform](https://homework-tracking.vercel.app/login).
 
 ## Build with
 
