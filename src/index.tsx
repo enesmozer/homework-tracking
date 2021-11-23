@@ -6,7 +6,7 @@ import store from "./redux/configureStore";
 import { Provider } from "react-redux";
 import TeacherList from "./components/TeacherList";
 import StudentsList from "./components/StudentsList";
-import HomeworkList from "./components/HomeworkList";
+import HomeworkList from "./views/HomeworkList";
 import LoginForm from "./components/LoginForm";
 import "./index.css";
 
