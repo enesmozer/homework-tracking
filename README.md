@@ -18,12 +18,16 @@ You will also see any lint errors in the console.
 
 You can test our solution with a test users below.
 
-For Principle = principle : 1234
-For Teacher = teacher1 : 1234
-For Principle = student : 1234
+For Principle -> principle : 1234 \
+For Teacher -> teacher1 : 1234 \
+For Principle -> student : 1234 \
 
 or you can check the our test database [test database](https://homework-tracking-db.herokuapp.com/users) and try any user you want.
 
 ## Live Demo
 
 You can see the live demo of [Homework Tracking Platform](https://homework-tracking.herokuapp.com/).
+
+## Build with
+
+> [React](https://reactjs.org) - [Ant Design](hhttps://ant.design) - [React Router](https://reactrouter.com) - [Redux-Saga](https://redux-saga.js.org) - [Axios](https://www.axios.com)
