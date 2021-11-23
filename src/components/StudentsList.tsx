@@ -4,7 +4,6 @@ import { useEffect } from "react";
 import { RootStateOrAny, useDispatch, useSelector } from "react-redux";
 import { getStudents, getTeacherById } from "../redux/actions/index";
 import { Link, useNavigate, useParams } from "react-router-dom";
-import student from "../services/student";
 
 const { Title } = Typography;
 
