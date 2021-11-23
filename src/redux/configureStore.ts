@@ -2,11 +2,15 @@ import { combineReducers, createStore, applyMiddleware, compose } from "redux";
 import createSagaMiddleware from "redux-saga";
 import user from "./reducers/user";
 import teacher from "./reducers/teacher";
+import students from "./reducers/students";
+import homework from "./reducers/homework";
 import rootSaga from "./sagas/rootSaga";
 
 const reducers = combineReducers({
   user,
   teacher,
+  students,
+  homework,
 });
 const sagaMiddleware = createSagaMiddleware();
 
