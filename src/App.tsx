@@ -1,14 +1,20 @@
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import  Header  from "./components/Header";
 import "./App.css";
 
 function App() {
   const navigate = useNavigate();
-  const loginUser = localStorage.getItem("loginUser");
-  useEffect(() => {
-    if (!loginUser) navigate("/login");
-  }, [loginUser,navigate]);
+  const loginUser = JSON.parse(localStorage.getItem("loginUser") || "{}");
 
-  return <div className="main"></div>;
+  useEffect(() => {
+    if (!Object.keys(loginUser).length) {
+      navigate("/login");
+    }
+  }, [navigate]);
+
+  return (
+    <Header />
+  )
 }
 export default App;
